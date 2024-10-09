@@ -66,6 +66,7 @@ export default {
       infoPagination:{},
       modalInfo: {},
       error:false,
+     
     }
   },
   methods: {
@@ -86,12 +87,20 @@ export default {
       }
     },
     getCharacterInfo: function (info) {
-      this.modalInfo = info
-      this.openModal()
+    
+      if(info){
+        this.modalInfo = info
+        this.openModal()
+      }
+     
     },
     openModal: function () {
-      const myModal = new bootstrap.Modal(document.getElementById('modal_character_content'))
-      myModal.show()
+      const modalElement = document.getElementById('modal_character_content');
+      if (modalElement) {
+      const myModal = new bootstrap.Modal(modalElement);
+      myModal.show();
+      
+    }
     },
     catchData: function (data) {
       

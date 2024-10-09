@@ -5,7 +5,7 @@
                 <a  @click="sendCharacterInfo(info)">
                     <img class="img-fluid mx-auto" :src="info.image" alt="characters">
                 </a>
-              <!-- data-bs-toggle="modal" data-bs-target="#modal_character_content" -->
+             
             </div>
             <div class="col-lg-7 col-sm-12">
                 <strong class="fs-4" v-text="info.name"></strong>
@@ -39,8 +39,8 @@ export default {
         }
     },
     methods: {
-        sendCharacterInfo:function(info){
-            this.$emit("sendCharacterInfo",info)
+        sendCharacterInfo:function(information){
+            this.$emit("sendCharacterInfo",information)
         },
         chooseColor:function(specie){
             switch(specie){

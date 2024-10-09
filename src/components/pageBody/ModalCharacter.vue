@@ -1,5 +1,5 @@
 <template>
-    <div id="modal_character_content" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel"
+    <div id="modal_character_content" class="modal fade" tabindex="-1" 
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" >
             <div class="modal-content" :style="'background-color:'+modalInfo?.bgColor">
@@ -64,6 +64,7 @@ export default {
         }
     },
     methods: {
+      
         getEpisodes: function (arrEpisodes) {
             let list = arrEpisodes.map(Url => {
                 return Url.replace('https://rickandmortyapi.com/api/episode/', ' ')
