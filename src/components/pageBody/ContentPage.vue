@@ -71,11 +71,9 @@ export default {
   methods: {
     goToPage:function(page){
       this.$parent.loader = true
-      debugger
       this.getData(`https://rickandmortyapi.com/api/character?page=${page}`)
     },
     nextPrevPage:function(direcction){
-      debugger
       this.$parent.loader = true
       if(direcction == 'next'){
           this.pages.shift()
@@ -96,13 +94,14 @@ export default {
       myModal.show()
     },
     catchData: function (data) {
-      debugger
+      
       if(Object.values(data).length<1){
         this.$parent.loader = false 
         this.error = true
         return
       }
       this.data = data.results
+      this.infoPagination = data.info
       this.$parent.loader = false
     },
     getData: function (url, dato) {

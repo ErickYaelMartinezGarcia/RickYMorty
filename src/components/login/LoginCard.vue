@@ -58,7 +58,6 @@
                 }
             },
             validateUser:function(user,pass){
-                debugger
             let userPrivate = localStorage.getItem('userPrivate')
             let password = localStorage.getItem('passwordPrivate')
             if(userPrivate === user && password === pass){

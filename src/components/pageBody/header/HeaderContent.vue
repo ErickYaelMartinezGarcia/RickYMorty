@@ -40,7 +40,7 @@ export default {
       if(!text){
         return console.log('asegurate de realizar una busqueda adecuada')
       }
-      debugger
+      
       this.$parent.$parent.loader = true
       //https://rickandmortyapi.com/api/character/?name=rick
       let url = `https://rickandmortyapi.com/api/character/?${filter}=${text}`
@@ -54,7 +54,7 @@ export default {
           this.$parent.$parent.loader = false;
         }
       }).catch(error => {
-      this.$emit("sendData", error.response.status);
+      this.$emit("sendData", error.response);
       this.$parent.$parent.loader = false;
       console.log('error',error);
     });
