@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="showModal == true" >
+    <div>
       <ModalCharacter :modalcharacter="modalcharacterInfo"></ModalCharacter>
     </div>
     
@@ -72,7 +72,7 @@ export default {
 
       //modal
       modalcharacterInfo: {},
-      showModal:false
+      
     }
   },
   methods: {
@@ -94,8 +94,8 @@ export default {
     },
     getCharacterInfo: function (info) {
         this.modalcharacterInfo = {...info}
-        this.showModal = true
-        this.openModal()
+       this.openModal()
+        
     },
     openModal: function () {
             let modalElement = document.getElementById('modal_character_content');
@@ -138,7 +138,11 @@ export default {
         },
   },
   watch:{
-  
+    // modalcharacterInfo(newValue,oldValue){
+    //   if(newValue){
+    //     this.openModal()
+    //   }
+    // }
   },
   mounted() {
     this.getData('https://rickandmortyapi.com/api/character', {})

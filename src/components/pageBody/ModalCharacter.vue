@@ -63,7 +63,6 @@ export default {
         }
     },
     methods: {
-
         getEpisodes: function (arrEpisodes) {
             let copyArr = [...arrEpisodes]
             let list = copyArr.map(Url => {
@@ -73,7 +72,7 @@ export default {
         },
     
     },
-    mounted() {
+    beforeUpdate() {
             this.getEpisodes(this.modalcharacter.episode)
     }
 }
