@@ -1,15 +1,17 @@
 <template>
   <div>
-
-    <ModalCharacter :modalInfo="modalInfo"></ModalCharacter>
+    <div v-if="showModal == true" >
+      <ModalCharacter :modalcharacter="modalcharacterInfo"></ModalCharacter>
+    </div>
+    
     <!-- header -->
     <HeaderContent @send-data="catchData"></HeaderContent>
 
     <!-- body -->
     <div class="row mx-auto my-auto" v-if="error == false">
       <template v-if="Object.values(data).length > 0">
-        <div v-for="character in data" class="col-lg-4 col-6 mx-auto my-3 ">
-          <cardPersonage :info="character" @send-character-info="getCharacterInfo"></cardPersonage>
+        <div v-for="(character,i) in data" :key="i" class="col-lg-4 col-6 mx-auto my-3 ">
+          <cardPersonage :info="character"  @send-character-info="getCharacterInfo"></cardPersonage>
         </div>
       </template>
     </div>
@@ -64,9 +66,13 @@ export default {
       pages:[1,2,3],
       data: {},
       infoPagination:{},
-      modalInfo: {},
+      
       error:false,
-     
+      episodes: [],
+
+      //modal
+      modalcharacterInfo: {},
+      showModal:false
     }
   },
   methods: {
@@ -87,21 +93,18 @@ export default {
       }
     },
     getCharacterInfo: function (info) {
-    
-      if(info){
-        this.modalInfo = info
+        this.modalcharacterInfo = {...info}
+        this.showModal = true
         this.openModal()
-      }
-     
     },
     openModal: function () {
-      const modalElement = document.getElementById('modal_character_content');
-      if (modalElement) {
-      const myModal = new bootstrap.Modal(modalElement);
-      myModal.show();
-      
-    }
+            let modalElement = document.getElementById('modal_character_content');
+            if(modalElement) {
+                const myModal = new bootstrap.Modal(modalElement);
+                myModal.show();
+            };
     },
+    
     catchData: function (data) {
       
       if(Object.values(data).length<1){
@@ -126,7 +129,16 @@ export default {
         this.$parent.loader = false
         console.log(error)
       })
-    }
+    },
+    getEpisodes: function (arrEpisodes) {
+            let list = arrEpisodes.map(Url => {
+                return Url.replace('https://rickandmortyapi.com/api/episode/', ' ')
+            })
+            this.episodes = list
+        },
+  },
+  watch:{
+  
   },
   mounted() {
     this.getData('https://rickandmortyapi.com/api/character', {})

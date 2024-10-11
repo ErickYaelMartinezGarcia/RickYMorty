@@ -1,11 +1,11 @@
 <template>
-
-
+  <div>
   <LoaderPortal v-if="loader"></LoaderPortal>
 
   <LoginContentComponent v-if="!haveAutorize && !loader" @autorize="autorize"></LoginContentComponent>
 
   <ContentPage v-if="haveAutorize" v-show="!loader"/>
+</div>
 </template>
 
 <script>

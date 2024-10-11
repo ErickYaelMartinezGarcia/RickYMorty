@@ -1,5 +1,5 @@
 <template>
-    <div class="card h-100" :style="{'background-color':chooseColor(info.species)}">
+    <div :id="info.id+'idCard'" class="card h-100" :style="{'background-color':chooseColor(info.species)}">
         <div class="card-body row mx-auto">
             <div class="col-lg-5 col-sm-12">
                 <a  @click="sendCharacterInfo(info)">
@@ -28,6 +28,7 @@
 <script>
 
 export default {
+    emits:['sendCharacterInfo'],
     props: {
             info:{
                 type:Object,
@@ -45,22 +46,22 @@ export default {
         chooseColor:function(specie){
             switch(specie){
                         case 'Human': 
-                            this.info.bgColor = '#fede67'
+                             this.info.bgColor = '#fede67'
                             return '#fede67';
                         case 'Alien':
-                            this.info.bgColor = '#c9a0fe' 
+                             this.info.bgColor = '#c9a0fe' 
                             return '#c9a0fe';
                         case 'Animal': 
-                            this.info.bgColor = '#ff746c'
+                             this.info.bgColor = '#ff746c'
                             return '#ff746c';
                         case 'Humanoid': 
-                            this.info.bgColor = '#98e13b'
+                             this.info.bgColor = '#98e13b'
                             return '#98e13b';
                         case 'Cronenberg': 
-                            this.info.bgColor = '#049CB3'
+                             this.info.bgColor = '#049CB3'
                             return '#049CB3';
                         default: 
-                            this.info.bgColor = '#fede67'
+                             this.info.bgColor = '#fede67'
                             return '#fede67';
             }
         }
