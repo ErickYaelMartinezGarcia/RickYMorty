@@ -4,33 +4,37 @@
             <div class="modal-content" :style="'background-color:'+modalcharacter?.bgColor">
                 <!-- :style="'box-shadow: 5px 5px 5px 5px'+modalInfo.bgColor"> -->
                 <div class="modal-header">
-                    <h1 class="modal-title fs-3 mortyBlueFont" id="exampleModalLabel" v-text="modalcharacter?.name">
+                      <!-- <h1 class="modal-title fs-3 mortyBlueFont" id="exampleModalLabel" v-text="modalcharacter?.name"></h1> -->
+                    <h1 class="modal-title fs-3" id="exampleModalLabel">Detalles de: 
+                        <span class="" v-text="modalcharacter?.name"></span>
                     </h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body row">
-                    <div class="col-lg-4 col-6 mx-auto">
-                        <img class="img-fluid mx-auto rounded-circle" :src="modalcharacter?.image" alt="characters">
+                    <div class="col-6 mx-auto">
+                        <img class="img-fluid mx-auto rounded-3" :src="modalcharacter?.image" alt="characters">
                     </div>
-                    <div class="col-lg-8">
+                    <div class="col-lg-6">
                         <div class="">
-                            <span>Genero<i class="bi bi-gender-ambiguous"></i> :</span>
+                            
+                            <span class="fw-semibold">Genero<i class="bi bi-gender-ambiguous"></i> :</span>
                             <span class="badge text-dark" :class="{'text-bg-info': modalcharacter?.gender == 'Male'}"
                                 :style="{ backgroundColor: modalcharacter?.gender == 'Female' ? 'rgb(255,190,205)' : '' }"
                                 v-text="modalcharacter?.gender">
                             </span>
                         </div>
                         <div class="">
-                            <span>Origen<i class="bi bi-geo-alt-fill text-danger"></i>:</span>
-                            <span class="badge text-dark" v-text="modalcharacter?.origin?.name"></span>
+                            <span class="fw-semibold">Origen<i class="bi bi-geo-alt-fill text-danger"></i>:</span>
+                            <span class="" v-text="modalcharacter?.origin?.name"></span>
                         </div>
 
-                        <span>Episodio en el que aparace:</span>
-                        <div class="row-cols-6 mx-auto">
+                        <span class="fw-semibold">Episodio en el que aparace:</span>
+                        <div class="row row-cols-6">
                             <template v-for="number in episodes">
-                                <span class="badge text-bg-success mx-1" v-text="number">
-
-                                </span>
+                                <div class="col bg-success rounded-5 text-center col m-1">
+                                    <span class="text-white" v-text="number"></span>
+                                </div>
+                                
                             </template>
                         </div>
                     </div>
@@ -41,8 +45,6 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button> -->
                 </div>
             </div>
         </div>

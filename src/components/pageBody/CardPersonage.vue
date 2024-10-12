@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <div :id="info.id+'idCard'" class="card h-100" :style="{'background-color':chooseColor(info.species)}">
         <div class="card-body row mx-auto">
             <div class="col-lg-5 col-sm-12">
@@ -24,6 +24,23 @@
             </div>
         </div>
     </div>
+</template> -->
+
+<template>
+    <div :id="info.id+'idCard'" class="rounded-3 h-100 col-lg-11 shadow py-2" :style="{'background-color':chooseColor(info.species)}">
+        <div class="mx-auto col-11">
+                <a type="button"@click="sendCharacterInfo(info)">
+                    <img class="img-fluid mx-auto rounded-1 rounded-bottom-0" :src="info.image" alt="characters">
+                </a>
+            </div>
+        <div class="pt-1 mx-auto my-auto px-2 ">
+                <h5 v-text="info.name"></h5>
+                    <span class="text-dark fw-semibold">Especie: </span>
+                    <span v-text="info.species"></span> <br>
+                        <span class="text-dark fw-semibold">Estatus: </span>
+                        <span v-text="info.status"></span>
+        </div>
+    </div>
 </template>
 <script>
 
@@ -46,8 +63,8 @@ export default {
         chooseColor:function(specie){
             switch(specie){
                         case 'Human': 
-                             this.info.bgColor = '#fede67'
-                            return '#fede67';
+                             this.info.bgColor = '#9bb5fa'
+                            return '#9bb5fa';
                         case 'Alien':
                              this.info.bgColor = '#c9a0fe' 
                             return '#c9a0fe';
