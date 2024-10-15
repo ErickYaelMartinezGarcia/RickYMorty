@@ -26,7 +26,7 @@
     
     <template>
         <div id="loader" class="d-flex justify-content-center align-items-center">
-            <div class="col-lg-5 col-md-6 col-8" style=" min-height: 300px;">
+            <div class="col-lg-5 col-md-6 col-8 mx-auto my-auto" style=" min-height: 300px;">
               <h1 id="fontFamily" class="text-center">Cargand0...</h1>
               <img class="img-fluid mx-auto d-block " 
                 src="/images/portal.gif" alt="gif-Portal">

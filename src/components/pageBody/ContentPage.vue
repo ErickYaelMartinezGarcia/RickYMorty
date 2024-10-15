@@ -8,7 +8,7 @@
     <HeaderContent @send-data="catchData"></HeaderContent>
 
     <!-- body -->
-    <div class="row row-cols-lg-5 row-cols-2 mx-auto my-auto" v-if="error == false">
+    <div class="row row-cols-lg-5 row-cols-md-3 row-cols-2 mx-auto my-auto" v-if="error == false">
       <template v-if="Object.values(data).length > 0">
         <div v-for="(character,i) in data" :key="i" class="mx-auto my-3 ">
           <cardPersonage :info="character"  @send-character-info="getCharacterInfo"></cardPersonage>

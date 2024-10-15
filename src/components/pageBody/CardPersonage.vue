@@ -28,17 +28,30 @@
 
 <template>
     <div :id="info.id+'idCard'" class="rounded-3 h-100 col-lg-11 shadow py-2" :style="{'background-color':chooseColor(info.species)}">
-        <div class="mx-auto col-11">
+        <div class="mx-auto col-11 text-center">
                 <a type="button"@click="sendCharacterInfo(info)">
-                    <img class="img-fluid mx-auto rounded-1 rounded-bottom-0" :src="info.image" alt="characters">
+                    <img class="img-fluid mx-auto rounded-2 rounded-bottom-0" :src="info.image" alt="characters">
                 </a>
             </div>
         <div class="pt-1 mx-auto my-auto px-2 ">
-                <h5 v-text="info.name"></h5>
-                    <span class="text-dark fw-semibold">Especie: </span>
-                    <span v-text="info.species"></span> <br>
-                        <span class="text-dark fw-semibold">Estatus: </span>
-                        <span v-text="info.status"></span>
+            <h5 class="fst-italic">
+                <i class="bi bi-tag-fill"> </i>
+                <span v-text="info.name"></span>
+            </h5>
+            <div class="row">
+                <span class="col-lg-4 text-dark fw-semibold d-flex">
+                        <i class="bi bi-people"></i>
+                          Especie: 
+                        </span>
+                        <div class="col-lg-8">
+                            <span class="" v-text="info.species"></span>
+                        </div>
+            </div>
+    
+                        <span class="text-dark fw-semibold">
+                            <i class="bi bi-heart-pulse"></i>
+                            Estatus: </span>
+                            <span v-text="info.status"></span>
         </div>
     </div>
 </template>
