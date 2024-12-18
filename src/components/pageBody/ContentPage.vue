@@ -9,7 +9,7 @@
     <div class="row mx-auto my-auto" v-if="error == false">
       <template v-if="Object.values(data).length > 0">
         <div v-for="character in data" class="col-lg-4 col-6 mx-auto my-3 ">
-          <cardPersonage :info="character" @send-character-info="getCharacterInfo"></cardPersonage>
+          <cardPersonage  :info="character" @send-character-info="getCharacterInfo"></cardPersonage>
         </div>
       </template>
     </div>
